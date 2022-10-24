@@ -10,9 +10,10 @@
 
 <body>
     <div id='app'>
-        <button @click="getjson">JSON</button>
+        <button @click="getjson1">JSON1</button>
+        <button @click="getjson2">JSON2</button>
         <p>{{name}}</p>
-        <div v-for="item in results">
+        <div v-for="(item,i) in results">
 
             {{item.id}}:{{item.name}}
 

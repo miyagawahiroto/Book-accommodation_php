@@ -1,23 +1,28 @@
-new Vue({
+const vm = new Vue({
     el: '#app',
     data: {
-        results: [],
+        results: {id:00,name:"OK"},
         name: 'a',
     },
+
     mounted() {
         axios
-            .get("http://localhost/Web/lesson/test3/return3.php/?a=0")
-            .then((response) => (this.results = response.data))
-            .catch((error) => console.log(error));
-        console.log(this.results);
+                .get("http://localhost/Web/宿予約システム/test.php/?a=1")
+                .then((response) => (this.results = response.data))
+                .catch((error) => console.log(error));
     },
     methods: {
-        getjson(){
-        axios
-            .get("http://localhost/Web/宿予約システム/test.php/?a=1")
-            .then((response) => (this.results = response.data))
-            .catch((error) => console.log(error));
-        console.log(this.results);
+        getjson1: function () {
+            axios
+                .get("http://localhost/Web/宿予約システム/test.php/?a=1")
+                .then((response) => (this.results = response.data))
+                .catch((error) => console.log(error));
+        },
+        getjson2: function () {
+            axios
+                .get("http://localhost/Web/宿予約システム/test.php/?a=2")
+                .then((response) => (this.results = response.data))
+                .catch((error) => console.log(error));
         }
     },
 
