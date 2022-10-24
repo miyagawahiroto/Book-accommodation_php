@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    <div class="demo_code" id="app">
-        <li v-for="res in results">
-            ID={{ res.id }}<br>
-            name={{ res.name }}<br>
-            check={{ res.check }}
-        </li>
-    </div>
+    <div id='app'>
+        <button @click="getjson">JSON</button>
+        <p>{{name}}</p>
+        <div v-for="item in results">
+
+            {{item.id}}:{{item.name}}
+
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
