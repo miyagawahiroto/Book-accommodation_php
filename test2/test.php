@@ -1,7 +1,7 @@
 <?php
 
 //JSON形式で返却すること、文字形式がUTF-8だということの宣言
-header('Content-Type: application/json; charset=UTF-8');
+header('Access-Control-Allow-Origin: *;Content-Type: application/json; charset=UTF-8');
 
 //データベースからユーザ情報を取得
 $pdo = new PDO('mysql:host=localhost;dbname=webdb;charset=utf8', 'webuser', 'abccsd2');
