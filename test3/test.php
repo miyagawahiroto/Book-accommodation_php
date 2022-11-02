@@ -1,8 +1,9 @@
 <?php
 
-//JSON形式で返却すること、文字形式がUTF-8だということの宣言
 
+//CROSエラーの解消
 header("Access-Control-Allow-Origin: *");
+//JSON形式で返却すること、文字形式がUTF-8だということの宣言
 header('Content-Type: application/json; charset=UTF-8');
 
 //データベースからユーザ情報を取得
