@@ -10,6 +10,12 @@
 
 <body>
     <div id='app'>
+        <p>
+            <span>ホテルID</span>
+            <input v-model="num" type="number" id="num" />
+            <button @click="search">探す</button>
+        </p>
+
         <!-- v-forでJSONの中身を値の数だけ回す -->
         <div v-for="(item,i) in results">
             <p>----------------------------</p>
