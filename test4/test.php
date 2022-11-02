@@ -14,6 +14,12 @@ if (isset($_GET['get_user']) == true) {
     $class = new Dteam();
     $data = $class->get_user();
 }
+
+//insrt文がある時の処理
+if(isset($_GET['create_user'])==true){
+    $class = new Dteam();
+    $class->insert_user($_GET['name'],$_GET['pass'],$_GET['mail'],$_GET['tel'],$_GET['address'],$_GET['gender'],$_GET['age']);
+}
 //arrayの中身をJSON形式に変換している
 $json_array = json_encode($data);
 

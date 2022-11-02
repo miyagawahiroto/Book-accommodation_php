@@ -24,4 +24,18 @@ class Dteam
         }
         return $data;
     }
+    function insert_user($name,$pass,$email,$tel,$gender,$age){
+        
+        $pdo = $this->get_pdo();
+        $sql = 'INSERT INTO user_mst (user_name,user_pass,user_email,user_tel,user_address,user_gender,user_age) VALUE (?,?,?,?,?,?)';
+
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, $name, PDO::PARAM_STR);
+        $ps->bindValue(2, $pass, PDO::PARAM_STR);
+        $ps->bindValue(3, $email,PDO::PARAM_STR);
+        $ps->bindValue(4, $tel, PDO::PARAM_STR);
+        $ps->bindValue(5, $gender, PDO::PARAM_STR);
+        $ps->bindValue(6, $age, PDO::PARAM_STR);
+        $ps->execute();
+    }
 }
