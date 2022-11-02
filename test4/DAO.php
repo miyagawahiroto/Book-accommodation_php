@@ -24,6 +24,23 @@ class Dteam
         }
         return $data;
     }
+    function get_hotel($hotel_id)
+    {
+
+        //配列の宣言（無いとエラーが発生した）
+        $data = array();
+
+        $pdo = $this->get_pdo();
+        $sql = "SELECT * FROM hotel_tbl WHERE hotel_id = $hotel_id";
+        $ps = $pdo->prepare($sql);
+        $ps->execute();
+        $search = $ps->fetchAll();
+        foreach ($search as $row) {
+            array_push($data, array('id' => $row['hotel_id'], 'hotelname' => $row['hotel_name'], 'address' => $row['hotel_address'], 'checkin' => $row['checkin_time'], 'capacity' => $row['hotel_capacity'],
+            'tag_1' => $row['hotel_tag_1'],'tag_2' => $row['hotel_tag_2'],'tag_3' => $row['hotel_tag_3'],'tag_4' => $row['hotel_tag_4'],'tag_5' => $row['hotel_tag_5'],'tag_6' => $row['hotel_tag_6'],'tag_7' => $row['hotel_tag_7'],'tag_8' => $row['hotel_tag_8'],'tag_9' => $row['hotel_tag_9'],'tag_10' => $row['hotel_tag_10']));
+        }
+        return $data;
+    }
     function insert_user($name,$pass,$email,$tel,$address,$gender,$age){
 
         $pdo = $this->get_pdo();
