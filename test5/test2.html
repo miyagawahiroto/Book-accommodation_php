@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <p>
+            <span>ホテルID</span>
+            <input v-model="search_hotel_id" type="number"/>
+            <button @click="hotel_search">探す</button>
+        </p>
+
+        <!-- v-forでJSONの中身を値の数だけ回す -->
+        <div v-for="(item,i) in hotels">
+            <p>----------------------------</p>
+            id:{{item.id}}<br>
+            name:{{item.hotel_name}}<br>
+            address:{{item.address}}<br>
+            checkin:{{item.checkin}}<br>
+            capacity:{{item.capacity}}<br>
+            tag_1:{{tags.tag1[item.tag_1]}}<br>
+            tag_2:{{tags.tag2[item.tag_2]}}<br>
+            tag_3:{{tags.tag3[item.tag_3]}}<br>
+            tag_4:{{tags.tag4[item.tag_4]}}<br>
+            tag_5:{{tags.tag5[item.tag_5]}}<br>
+            tag_6:{{tags.tag6[item.tag_6]}}<br>
+            tag_7:{{tags.tag7[item.tag_7]}}<br>
+            tag_8:{{tags.tag8[item.tag_8]}}<br>
+            tag_9:{{tags.tag9[item.tag_9]}}<br>
+            tag_10:{{tags.tag10[item.tag_10]}}<br>
+
+        </div>
+
+        <p>
+            <span>ユーザID</span>
+            <input v-model="search_user_id" type="number"/>
+            <button @click="user_search">探す</button>
+        </p>
+        <div v-for="(item,i) in users">
+
+            <p>----------------------------</p>
+            id:{{item.id}}<br>
+            name:{{item.username}}<br>
+            mail:{{item.mail}}<br>
+            address:{{item.address}}<br>
+
+        </div>
+    </div>
+    <!-- vue.jsのCDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- JSの読み込み -->
+    <script src="./script2.js"></script>
+</body>
+
+</html>
