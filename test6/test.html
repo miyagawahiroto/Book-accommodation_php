@@ -10,13 +10,14 @@
 
 <body>
     <div id='app'>
+        <p>{{results}}</p>
         <p>
             <span>ユーザID</span>
             <input v-model="search_user_id" type="number"/>
         </p>
         <p>
             <span>パスワード</span>
-            <input v-model="search_password" type="password"/>
+            <input v-model="search_password" type="text"/>
         </p>
         <button @click="login">ログイン</button>
     </div>

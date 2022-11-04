@@ -8,6 +8,23 @@ class Dteam
         return $pdo;
     }
 
+    function login_user($user_id,$user_pass){
+
+        $pdo = $this->get_pdo();
+        $sql = "SELECT * FROM user_tbl WHERE user_id = ? AND user_pass = ?";
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, $user_id, PDO::PARAM_STR);
+        $ps->bindValue(2, $user_pass, PDO::PARAM_STR);
+        $ps->execute();
+        $search = $ps->fetchAll();
+        if($search==null){
+            $data = false;
+        }else{
+            $data = true;
+        }
+        return $data;
+    }
+
     function get_user($user_id)
     {
 

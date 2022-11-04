@@ -9,6 +9,12 @@ header('Content-Type: application/json; charset=UTF-8');
 //DAOの読み込み
 require './DAO.php';
 
+//login_userの引数がある場合はresultにtrueを入れて返す
+if(isset($_GET['login_user'])==true){
+    $class = new Dteam();
+    $data = $class->login_user($_GET['user_id'],$_GET['user_pass']);
+}
+
 //get_userlistの引数がある場合user情報を返す
 if (isset($_GET['get_userlist']) == true) {
     $class = new Dteam();
