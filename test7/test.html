@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <p>
+            <span>タグナンバー</span>
+            <input v-model="tag_no" type="text"/>
+        </p>
+        <p>
+            <span>キーワード</span>
+            <input v-model="keyword" type="text"/>
+        </p>
+        <button @click="hotel_tag_search">探す</button>
+        <div v-for="(item,i) in hotels">
+            {{item.hotel_id}}
+        </div>
+    </div>
+    <!-- vue.jsのCDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- JSの読み込み -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
