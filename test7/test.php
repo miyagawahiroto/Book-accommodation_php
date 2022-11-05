@@ -33,6 +33,12 @@ if (isset($_GET['get_hotel']) == true) {
     $data = $class->get_hotel($_GET['hotel_id']);
 }
 
+//get_hotellistの引数がある場合user情報を返す
+if (isset($_GET['get_hotellist']) == true) {
+    $class = new Dteam();
+    $data = $class->get_hotellist();
+}
+
 //insrt文がある時の処理
 if(isset($_GET['create_user'])==true){
     $class = new Dteam();
