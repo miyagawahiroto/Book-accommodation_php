@@ -48,7 +48,7 @@ if(isset($_GET['create_user'])==true){
 //引数hotel_tag_searchがある時の処理
 if(isset($_GET['hotel_tag_search'])==true){
     $class = new Dteam();
-    $data=$class->hotel_tag_search($_GET['tag'],$_GET['key']);
+    $data=$class->hotel_tag_search1($_GET['tag'],$_GET['key']);
 }
 //arrayの中身をJSON形式に変換している
 $json_array = json_encode($data);

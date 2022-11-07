@@ -117,7 +117,7 @@ class Dteam
         $ps->execute();
     }
 
-    function hotel_tag_search($tag, $key)
+    function hotel_tag_search1($tag, $key)
     {
 
         $data = array();
@@ -143,6 +143,45 @@ class Dteam
             array_push($data, array('hotel_id' => $row['hotel_id']));
         }
         
+        return $data;
+    }
+
+    function hotel_tag_search2($tag, $key)
+    {
+
+        $data = array();
+
+        $pdo = $this->get_pdo();
+        if ($tag == 'hotel_tag_1') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_1 LIKE ?";
+        } else if ($tag == 'hotel_tag_2') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_2 LIKE ?";
+        } else if ($tag == 'hotel_tag_3') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_3 LIKE ?";
+        } else if ($tag == 'hotel_tag_4') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_4 LIKE ?";
+        } else if ($tag == 'hotel_tag_5') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_5 LIKE ?";
+        }
+
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, '%' . $key . '%', PDO::PARAM_STR);
+        $ps->execute();
+        $search = $ps->fetchAll();
+        foreach ($search as $row) {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $row['hotel_id'], PDO::PARAM_STR);
+            $ps->execute();
+            $search2 = $ps->fetchAll();
+            foreach ($search2 as $row2) {
+                array_push($data, array(
+                    'id' => $row2['hotel_id'], 'hotel_name' => $row2['hotel_name'], 'address' => $row2['hotel_address'], 'checkin' => $row2['checkin_time'], 'capacity' => $row2['hotel_capacity'],
+                    'tag_1' => $row2['hotel_tag_1'], 'tag_2' => $row2['hotel_tag_2'], 'tag_3' => $row2['hotel_tag_3'], 'tag_4' => $row2['hotel_tag_4'], 'tag_5' => $row2['hotel_tag_5'], 'tag_6' => $row2['hotel_tag_6'], 'tag_7' => $row2['hotel_tag_7'], 'tag_8' => $row2['hotel_tag_8'], 'tag_9' => $row2['hotel_tag_9'], 'tag_10' => $row2['hotel_tag_10']
+                ));
+            }
+        }
+
         return $data;
     }
 }

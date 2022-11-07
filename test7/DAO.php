@@ -117,7 +117,7 @@ class Dteam
         $ps->execute();
     }
 
-    function hotel_tag_search($tag, $key)
+    function hotel_tag_search1($tag, $key)
     {
 
         $data = array();

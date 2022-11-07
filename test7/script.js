@@ -5,7 +5,6 @@ const vm = new Vue({
         tag_no: 'hotel_tag_1',
         keyword: 'ホテル',
         hotelids:{},
-        hotelids2:{},
         hotels:{}
     },
     //ページが読み込まれた時に動く処理
@@ -23,7 +22,7 @@ const vm = new Vue({
         },
         tag_search() {
             axios
-                .get("http://mp-class.chips.jp/test.php/?hotel_tag_search&tag="+this.tag_no+"&key="+this.keyword)
+                .get("http://mp-class.chips.jp/test.php/?hotel_tag_search1&tag="+this.tag_no+"&key="+this.keyword)
                 .then((response) => (this.hotelids = response.data))
                 .catch((error) => console.log(error));
         }
