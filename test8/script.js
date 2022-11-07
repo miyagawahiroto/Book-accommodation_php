@@ -20,6 +20,7 @@ const vm = new Vue({
     methods: {
         hotel_tag_search() {
             this.tag_search();
+            this.tag_search2();
         },
         tag_search() {
             axios

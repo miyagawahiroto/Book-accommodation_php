@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <p>
+            <span>tag_number</span>
+            <input v-model="tag_no" type="text" />
+        </p>
+        <p>
+            <span>キーワード</span>
+            <input v-model="keyword" type="text" />
+        </p>
+        <button @click="hotel_tag_search">探す</button>
+        <p>検索キーワード:{{keyword}}</p>
+        <div v-for="(item,i) in hotelids">
+            {{item.hotel_id}}
+            <div v-for="(item2,i2) in hotels">
+                <div v-if="item.hotel_id==item2.id">
+                    id:{{item2.id}}<br>
+                    name:{{item2.hotel_name}}<br>
+                    address:{{item2.address}}<br>
+                    checkin:{{item2.checkin}}<br>
+                    capacity:{{item.capacity}}<br>
+                    tag_1:{{item2.tag_1}}<br>
+                    tag_2:{{item2.tag_2}}<br>
+                    tag_3:{{item2.tag_3}}<br>
+                    tag_4:{{item2.tag_4}}<br>
+                    tag_5:{{item2.tag_5}}<br>
+                    tag_6:{{item2.tag_6}}<br>
+                    tag_7:{{item2.tag_7}}<br>
+                    tag_8:{{item2.tag_8}}<br>
+                    tag_9:{{item2.tag_9}}<br>
+                    tag_10:{{item2.tag_10}}<br>
+                </div>
+            </div>
+            <p>----------------------------</p>
+        </div>
+    </div>
+    <!-- vue.jsのCDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- JSの読み込み -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
