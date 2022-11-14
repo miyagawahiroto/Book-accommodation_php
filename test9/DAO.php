@@ -80,6 +80,25 @@ class Dteam
         return $data;
     }
 
+    function get_hotelidlist()
+    {
+
+        //配列の宣言（無いとエラーが発生した）
+        $data = array();
+
+        $pdo = $this->get_pdo();
+        $sql = 'SELECT * FROM hotel_tbl';
+        $ps = $pdo->prepare($sql);
+        $ps->execute();
+        $search = $ps->fetchAll();
+        foreach ($search as $row) {
+            array_push($data, array(
+                'id' => $row['hotel_id'], 'num' => 0
+            ));
+        }
+        return $data;
+    }
+
     function get_hotel($hotel_id)
     {
 
@@ -123,26 +142,26 @@ class Dteam
         $data = array();
 
         $pdo = $this->get_pdo();
-        if($tag=='hotel_tag_1'){
-            $sql="SELECT * FROM hotel_tbl WHERE hotel_tag_1 LIKE ?";
-        }else if($tag=='hotel_tag_2'){
-            $sql="SELECT * FROM hotel_tbl WHERE hotel_tag_2 LIKE ?";
-        }else if($tag=='hotel_tag_3'){
-            $sql="SELECT * FROM hotel_tbl WHERE hotel_tag_3 LIKE ?";
-        }else if($tag=='hotel_tag_4'){
-            $sql="SELECT * FROM hotel_tbl WHERE hotel_tag_4 LIKE ?";
-        }else if($tag=='hotel_tag_5'){
-            $sql="SELECT * FROM hotel_tbl WHERE hotel_tag_5 LIKE ?";
+        if ($tag == 'hotel_tag_1') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_1 LIKE ?";
+        } else if ($tag == 'hotel_tag_2') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_2 LIKE ?";
+        } else if ($tag == 'hotel_tag_3') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_3 LIKE ?";
+        } else if ($tag == 'hotel_tag_4') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_4 LIKE ?";
+        } else if ($tag == 'hotel_tag_5') {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_5 LIKE ?";
         }
-        
+
         $ps = $pdo->prepare($sql);
-        $ps->bindValue(1, '%'.$key.'%', PDO::PARAM_STR);
+        $ps->bindValue(1, '%' . $key . '%', PDO::PARAM_STR);
         $ps->execute();
         $search = $ps->fetchAll();
         foreach ($search as $row) {
             array_push($data, array('hotel_id' => $row['hotel_id']));
         }
-        
+
         return $data;
     }
 
@@ -182,6 +201,34 @@ class Dteam
             }
         }
 
+        return $data;
+    }
+
+    function get_farst_hotels($num)
+    {
+        //配列の宣言（無いとエラーが発生した）
+        $data = array();
+
+        $pdo = $this->get_pdo();
+        $sql = "SELECT * FROM hotel_tbl WHERE hotel_tag_1 LIKE ?";
+        $ps = $pdo->prepare($sql);
+        if($num=='1'){
+            $ps->bindValue(1, '%ホテル%', PDO::PARAM_STR);
+        }else if($num=='2'){
+            $ps->bindValue(1, '%旅館%', PDO::PARAM_STR);
+        }else if($num=='3'){
+            $ps->bindValue(1, '%ビジネス%', PDO::PARAM_STR);
+        }else if($num=='4'){
+            $ps->bindValue(1, '%カジュアル%', PDO::PARAM_STR);
+        }
+        $ps->execute();
+        $search = $ps->fetchAll();
+        foreach ($search as $row) {
+            array_push($data, array(
+                'id' => $row['hotel_id'], 'hotel_name' => $row['hotel_name'], 'address' => $row['hotel_address'], 'checkin' => $row['checkin_time'], 'capacity' => $row['hotel_capacity'],
+                'tag_1' => $row['hotel_tag_1'], 'tag_2' => $row['hotel_tag_2'], 'tag_3' => $row['hotel_tag_3'], 'tag_4' => $row['hotel_tag_4'], 'tag_5' => $row['hotel_tag_5'], 'tag_6' => $row['hotel_tag_6'], 'tag_7' => $row['hotel_tag_7'], 'tag_8' => $row['hotel_tag_8'], 'tag_9' => $row['hotel_tag_9'], 'tag_10' => $row['hotel_tag_10'], 'num' => 0
+            ));
+        }
         return $data;
     }
 }

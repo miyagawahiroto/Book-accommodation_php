@@ -39,6 +39,18 @@ if (isset($_GET['get_hotellist']) == true) {
     $data = $class->get_hotellist();
 }
 
+//get_hotelidlistの引数がある場合user情報を返す
+if (isset($_GET['get_hotelidlist']) == true) {
+    $class = new Dteam();
+    $data = $class->get_hotelidlist();
+}
+
+//get_hotelnumの引数がある場合user情報を返す
+if (isset($_GET['get_farst']) == true) {
+    $class = new Dteam();
+    $data = $class->get_farst_hotels($_GET['num']);
+}
+
 //insrt文がある時の処理
 if(isset($_GET['create_user'])==true){
     $class = new Dteam();
