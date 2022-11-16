@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+
+        <select v-model="selectdata">
+            <option>ホテル</option>
+            <option>旅館</option>
+            <option>ビジネス</option>
+            <option>カジュアル</option>
+        </select>
+        <button @click="seach">探す</button>
+        <p>
+            <span>朝食</span>
+            <input type="checkbox" v-model="chk1" @change="chk_1">
+        </p>
+        <p><span>昼食</span>
+            <input type="checkbox" v-model="chk2" @change="chk_2">
+        </p>
+        <p><span>夕食</span>
+            <input type="checkbox" v-model="chk3" @change="chk_3">
+        </p>
+        <p><span>tag_4</span>
+            <input type="checkbox" v-model="chk4" @change="chk_4">
+        </p>
+        <p><span>tag_5</span>
+            <input type="checkbox" v-model="chk5" @change="chk_5">
+        </p>
+        <div v-for="(item,i) in hotels">
+            <div v-if="count <= item.num">
+                <p>----------------------------</p>
+                id:{{item.id}}<br>
+                name:{{item.hotel_name}}<br>
+                address:{{item.address}}<br>
+                checkin:{{item.checkin}}<br>
+                capacity:{{item.capacity}}<br>
+                tag_1:{{item.tag_1}}<br>
+                tag_2:{{item.tag_2}}<br>
+                tag_3:{{item.tag_3}}<br>
+                tag_4:{{item.tag_4}}<br>
+                tag_5:{{item.tag_5}}<br>
+                tag_6:{{item.tag_6}}<br>
+                tag_7:{{item.tag_7}}<br>
+                tag_8:{{item.tag_8}}<br>
+                tag_9:{{item.tag_9}}<br>
+                tag_10:{{item.tag_10}}<br>
+            </div>
+        </div>
+    </div>
+    <!-- vue.jsのCDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- JSの読み込み -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
