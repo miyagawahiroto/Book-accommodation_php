@@ -7,6 +7,8 @@ const vm = new Vue({
         tyousyoku: {},
         tyuusyoku:{},
         yuusyoku:{},
+        kinen:{},
+        suito:{},
         selectdata: 'ホテル',
         chk1: false,
         chk2: false,
@@ -20,6 +22,8 @@ const vm = new Vue({
         this.seach_tyousyoku();
         this.seach_tyuusyoku();
         this.seach_yuusyoku();
+        this.seach_kinen();
+        this.seach_suito();
     },
     updated() {
     },
@@ -88,17 +92,45 @@ const vm = new Vue({
             }
         },
         chk_4() {
-            if (this.chk1 == true) {
+            if (this.chk4 == true) {
                 this.count++;
+                for ($i = 0; $i < this.hotels.length; $i++) {
+                    for ($j = 0; $j < this.kinen.length; $j++) {
+                        if (this.hotels[$i].id === this.kinen[$j].hotel_id) {
+                            this.hotels[$i].num++;
+                        }
+                    }
+                }
             } else {
                 this.count--;
+                for ($i = 0; $i < this.hotels.length; $i++) {
+                    for ($j = 0; $j < this.kinen.length; $j++) {
+                        if (this.hotels[$i].id === this.kinen[$j].hotel_id) {
+                            this.hotels[$i].num--;
+                        }
+                    }
+                }
             }
         },
         chk_5() {
-            if (this.chk1 == true) {
+            if (this.chk5 == true) {
                 this.count++;
+                for ($i = 0; $i < this.hotels.length; $i++) {
+                    for ($j = 0; $j < this.suito.length; $j++) {
+                        if (this.hotels[$i].id === this.suito[$j].hotel_id) {
+                            this.hotels[$i].num++;
+                        }
+                    }
+                }
             } else {
                 this.count--;
+                for ($i = 0; $i < this.hotels.length; $i++) {
+                    for ($j = 0; $j < this.suito.length; $j++) {
+                        if (this.hotels[$i].id === this.suito[$j].hotel_id) {
+                            this.hotels[$i].num--;
+                        }
+                    }
+                }
             }
         },
         seach(){
@@ -124,6 +156,18 @@ const vm = new Vue({
             axios
                 .get("http://mp-class.chips.jp/test.php/?hotel_tag_search1&tag=hotel_tag_2&key=夕食")
                 .then((response) => (this.yuusyoku = response.data))
+                .catch((error) => console.log(error));
+        },
+        seach_kinen() {
+            axios
+                .get("http://mp-class.chips.jp/test.php/?hotel_tag_search1&tag=hotel_tag_3&key=禁煙")
+                .then((response) => (this.kinen = response.data))
+                .catch((error) => console.log(error));
+        },
+        seach_suito() {
+            axios
+                .get("http://mp-class.chips.jp/test.php/?hotel_tag_search1&tag=hotel_tag_3&key=スイート")
+                .then((response) => (this.suito = response.data))
                 .catch((error) => console.log(error));
         },
         seach_hotels(){

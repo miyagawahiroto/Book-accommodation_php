@@ -123,7 +123,7 @@ class Dteam
     {
 
         $pdo = $this->get_pdo();
-        $sql = 'INSERT INTO user_mst (user_name,user_pass,user_email,user_tel,user_address,user_gender,user_age) VALUE (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO user_tbl (user_name,user_pass,user_email,user_tel,user_address,user_gender,user_age) VALUE (?,?,?,?,?,?,?)';
 
         $ps = $pdo->prepare($sql);
         $ps->bindValue(1, $name, PDO::PARAM_STR);

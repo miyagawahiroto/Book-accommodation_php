@@ -1,0 +1,68 @@
+a {
+  text-decoration:none;
+}
+
+a:link { color: #ffffffe7; } 
+a:visited { color: #ffffffe7; }
+
+/*背景画像設定*/
+body{
+  /*背景の画像読み込み*/
+  background-image: url("../photo/view/view_1.jpg");
+  /*背景の画像サイズ*/
+  background-size: 100% 100%;
+  /*背景の繰り返しをしない*/
+  background-repeat: no-repeat;
+  /**/
+  background-attachment:fixed;
+}
+
+/*文字設定*/
+.text-image p {
+  margin-top: 50%;
+  margin-bottom: 15%;
+  text-align: center;
+  font-size: 400%;
+  line-height: 90%;
+  color: #ffffffe7;
+  font-family:"HG正楷書体-PRO";
+}
+/*白枠設定*/
+.bak{
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 100%;
+  top: 100%;
+  background-color: rgb(255, 255, 255,0.5);
+}
+
+/*テキストボックス設定*/
+.form-control{
+  margin-top: 10%;
+  margin-bottom: 10%;
+  height: 7vh;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*ボタン設定*/
+.bt{
+  width: 80%;
+  margin-top: 10%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.create{
+  margin-top: 15%;
+  margin-bottom: 15%;
+  text-align: center;
+  font-size: 200%;
+  line-height: 90%;
+  color: #ffffffe7;
+  font-family:"HG正楷書体-PRO";
+}

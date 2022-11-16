@@ -55,6 +55,7 @@ if (isset($_GET['get_farst']) == true) {
 if(isset($_GET['create_user'])==true){
     $class = new Dteam();
     $class->insert_user($_GET['name'],$_GET['pass'],$_GET['mail'],$_GET['tel'],$_GET['address'],$_GET['gender'],$_GET['age']);
+    $data = true;
 }
 
 //引数hotel_tag_searchがある時の処理

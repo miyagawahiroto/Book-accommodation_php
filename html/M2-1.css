@@ -1,0 +1,59 @@
+/*背景画像設定*/
+body{
+    /*背景の画像読み込み*/
+    background-image: url("../photo/view/view_1.jpg");
+    /*背景の画像サイズ*/
+    background-size: 100% 100%;
+    /*背景の繰り返しをしない*/
+    background-repeat: no-repeat;
+    /**/
+    background-attachment:fixed;
+  }
+  
+  /*文字設定*/
+  .text-image p {
+    margin-top: 25%;
+    margin-bottom: 25%;
+    text-align: center;
+    font-size: 280%;
+    line-height: 90%;
+    color: #ffffffe7;
+    font-family:"HG正楷書体-PRO";
+  }
+  
+  /*白枠設定*/
+  .wak{
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    height: 45vh;
+    background-color: rgb(255, 255, 255,0.5);
+  }
+  /*テキストボックス設定*/
+  .form-control{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 95%;
+    height: 6vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .yoko{
+    display: flex;
+    list-style: none;
+    padding:0;
+    margin-left: auto;
+    margin-right: auto;
+    width:98%;
+    list-style-type: none;
+    font: right;
+  }
+  /*ボタン設定*/
+  .bt{
+    margin-top: 25%;
+    width: 80%;
+    height: 20%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
