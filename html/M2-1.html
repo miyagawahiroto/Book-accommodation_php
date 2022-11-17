@@ -57,8 +57,16 @@
 					<div class="yoko">
 						<div class="form-floating">
 							<div class="col-md-12">
-								<input type="number" class="form-control" id="gender" placeholder="gender"
-									v-model="gender">
+								<!-- <input type="number" class="form-control" id="gender" placeholder="gender"
+									v-model="gender"> -->
+								<label>
+									<input type="radio" name="gender" value="1" v-model="gender">
+									男性
+								</label>
+								<label>
+									<input type="radio" name="gender" value="2" v-model="gender">
+									女性
+								</label>
 							</div>
 						</div>
 						<div class="form-floating">
@@ -79,6 +87,7 @@
 				</div>
 			</div>
 		</div>
+		<p v-if="error" style="color: red;">error</p>
 	</div>
 	<!-- vue.jsのCDN -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -86,7 +95,6 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<!-- JSの読み込み -->
 	<script src="./M2-1vue.js"></script>
-	</script>
 </body>
 
 </html>
