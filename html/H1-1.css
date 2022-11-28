@@ -1,0 +1,120 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+a {
+  color:#fff;
+  text-decoration: none;
+}
+
+.topImg{
+  width: 100%;
+}
+
+.slideImg {
+  background-color: gainsboro;
+  margin-top: 12%;
+  margin-bottom: 12%;
+  padding-top:4%;
+}
+
+/*共通部分navigationの部分*/
+
+.nav {
+  background-color: rgba(34, 58, 112, 1);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.ulNav {
+  display: flex;
+  text-align: center;
+  list-style: none;
+}
+
+.liNav {
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding:5% 0;
+}
+
+/*アイコンの設定*/
+
+.iconHome::before {
+  font-family: 'FontAwesome';
+  content: "\f015";
+  font-size:2em;
+}
+
+.iconSearch:before {
+  font-family: 'FontAwesome';
+  content: "\f002";
+  font-size: 2em;
+}
+
+.iconBook::before {
+  font-family: 'FontAwesome';
+  content: "\f0f2";
+  font-size: 2em;
+}
+
+.iconMypage::before {
+  font-family: 'FontAwesome';
+  content: "\f007";
+  font-size: 2em;
+}
+
+/* カルーセル本体の横幅を設定 */
+.el-carousel {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* インジケータをドット型へ変更 */
+.el-carousel__button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 1;
+  background-color: gray;
+}
+
+/* アクティブなインジケータの色を変更*/
+.el-carousel__indicator.is-active button {
+  background-color: #fff;
+}
+
+/* [前へ][次へ]ボタンを変更 */
+.el-carousel__arrow {
+  background-color: transparent;
+}
+
+.el-carousel__arrow:hover {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* [前へ][次へ]ボタンのアイコンサイズを変更 */
+.el-carousel__arrow i {
+  font-size: 40px;
+}
+
+/* [前へ][次へ]ボタンのアイコンを変更 */
+.el-icon-arrow-right:before {
+  content: "\e6e9";
+}
+
+.el-icon-arrow-left::before {
+  content: "\e6ea";
+}
+
+.el-carousel__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
