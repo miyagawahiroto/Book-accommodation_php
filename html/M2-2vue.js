@@ -17,7 +17,7 @@ const vm = new Vue({
     watch: {
         results() {
             if (this.results == true) {
-                location.href = "./M2-1.html";
+                location.href = "./H1-1.html";
             }
         }
     },
