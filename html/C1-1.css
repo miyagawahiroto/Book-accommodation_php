@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*-------共通部分navigationの部分---------*/
+
+.nav {
+    background-color: rgba(34, 58, 112, 1);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.ulNav {
+    display: flex;
+    text-align: center;
+    list-style: none;
+}
+
+.liNav {
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 5% 0;
+}
+
+/*アイコンの設定*/
+
+.iconHome::before {
+    font-family: 'FontAwesome';
+    content: "\f015";
+    font-size: 2em;
+}
+
+.iconSearch:before {
+    font-family: 'FontAwesome';
+    content: "\f002";
+    font-size: 2em;
+}
+
+.iconBook::before {
+    font-family: 'FontAwesome';
+    content: "\f0f2";
+    font-size: 2em;
+}
+
+.iconMypage::before {
+    font-family: 'FontAwesome';
+    content: "\f007";
+    font-size: 2em;
+}
+
+/*header*/
+
+
+.header {
+    padding:16px 0;
+}
+
+header{
+    background-color: rgba(34, 58, 112, 1);
+    height: 32px;
+}
+
+.main {
+    padding:0;
+}
+
+/*---------silde img setting ------------*/
+
+
+/* カルーセル本体の横幅を設定 */
+.el-carousel {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* インジケータをドット型へ変更 */
+.el-carousel__button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 1;
+    background-color: gray;
+}
+
+/* アクティブなインジケータの色を変更*/
+.el-carousel__indicator.is-active button {
+    background-color: #fff;
+}
+
+/* [前へ][次へ]ボタンを変更 */
+.el-carousel__arrow {
+    background-color: transparent;
+}
+
+.el-carousel__arrow:hover {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* [前へ][次へ]ボタンのアイコンサイズを変更 */
+.el-carousel__arrow i {
+    font-size: 40px;
+}
+
+/* [前へ][次へ]ボタンのアイコンを変更 */
+.el-icon-arrow-right:before {
+    content: "\e6e9";
+}
+
+.el-icon-arrow-left::before {
+    content: "\e6ea";
+}
+
+.el-carousel__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Service Title */
+
+.serviceTitle {
+    margin: 5% 0;
+    text-align: center;
+}
+
+/* Serive Details */
+
+.serviceDetails{
+    margin: 2% 0;
+    text-align: right;
+    padding-right: 30%;
+}
+
+.takeButton {
+    text-align: right;
+    margin:3% 15% 5% auto;
+}
+.takeBtn {
+    background: rgba(34, 58, 112, 1);
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.open {
+	cursor:pointer; /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
+}
+#pop-up {
+	display: none; /* label でコントロールするので input は非表示に */
+}
+.overlay {
+	display: none; /* input にチェックが入るまでは非表示に */
+}
+#pop-up:checked + .overlay {
+	display: block;
+	z-index: 9999;
+	background-color: #00000070;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+.window {
+	width: auto;
+	max-width: auto;
+	height: auto;
+	background-color: rgba(34, 58, 112 ,1);
+	border-radius: 6px;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    padding:7%;
+    opacity:0.92;
+}
+p{
+    margin:2% 0;
+}
+.bookButton {
+    text-align: center;
+    margin: 5% auto;
+    text-decoration: none;
+}
+.bookButton :hover{
+    background-color: gray;
+    color:#fff;
+}
+.booklink{
+    color: rgba(34, 58, 112, 1);
+    background-color: #fff;
+    padding: 2% 15%;
+}
+.hotelName{
+    text-align: center;
+    font-size: x-large;
+    color: #fff;
+}
+.hotelDetails{
+    color: #fff;
+}
+.text {
+	font-size: 18px;
+	margin: 0;
+    color: #fff;
+}
+hr{
+    margin:2%;
+}
+.close {
+	cursor:pointer;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	font-size: 20px;
+}
+
+/* yamatsu */
+.windowNone{
+    display: none;
+}
