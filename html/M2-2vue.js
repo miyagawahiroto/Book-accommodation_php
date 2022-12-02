@@ -17,6 +17,7 @@ const vm = new Vue({
     watch: {
         results() {
             if (this.results == true) {
+                window.sessionStorage.setItem(['user_id'], this.user_id);
                 location.href = "./H1-1.html";
             }
         }

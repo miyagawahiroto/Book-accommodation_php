@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./C1-1.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <header></header>
+    </div>
+
+    <div id="app">
+        <div class="main">
+
+
+            <div class="slideImg">
+                <img v-bind:src="photo" alt="" style="width: 100%;">
+            </div>
+
+
+            <input type="checkbox" id="pop-up">
+            <div v-for="item in room">
+                <div class="overlay">
+                    <!-- 送信時にクラスの切り替え -->
+                    <div class="window">
+                        <div id="window">
+                            <label class="close" for="pop-up">×</label>
+                            <div class="hotelName">XXXHotel</div>
+                            <br>
+                            <label class="hotelDetails">
+                                <p>fee:10000yen</p>
+                                <hr noshade="" size="2">
+                                <p>name:oooooo</p>
+                                <hr noshade="" size="2">
+                                <p>plan:oooooCurse</p>
+                                <hr noshade="" size="2">
+                                <p>cheackinDate:00/00</p>
+                                <hr noshade="" size="2">
+                                <p>cheackoutDate:00/00</p>
+                                <hr noshade="" size="2">
+                                <p>how many:oo humans</p>
+                                <hr noshade="" size="2">
+                            </label>
+
+                            <label class="text">Are you ready?</label>
+                            <br>
+                            <!--@clickはbookButtonに書く-->
+                            <div class="bookButton" id="bookButton">
+                                <i href="." class="booklink">book</i>
+                            </div>
+                        </div>
+                        <div id="sendMessage" class="windowNone">
+                            <p class="hotelDetails">完了しました</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="hotelContent">
+                    <div class="serviceTitle">
+                        <h5>{{item.title}}</h5>
+                    </div>
+
+                    <hr>
+
+                    <div class="serviceDetails">
+                        <h4>service details</h4>
+                        <ul>
+                            <li>{{item.tag_2}}</li>
+                            <li>{{item.tag_3}}</li>
+                            <li>{{item.tag_4}}</li>
+                            <li>{{item.tag_5}}</li>
+                        </ul>
+                        <h4 class="servicefee">￥{{item.fee}}</h4><br>
+                        <h4 class="servicefee">(税込)￥{{item.fee/10*11}}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="takeButton">
+                <label class="open takeBtn" for="pop-up">
+                    take a room
+                </label>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="navigation">
+        <nav class="nav">
+            <ul class="ulNav">
+                <li class="liNav">
+                    <a href="./H1-1.html">
+                        <div class="iconHome"></div>ホーム
+                    </a>
+                </li>
+                <li class="liNav">
+                    <a href=".">
+                        <div class="iconSearch"></div>検索
+                    </a>
+                </li>
+                <li class="liNav">
+                    <a href="./M1-1.html">
+                        <div class="iconBook"></div>予約一覧
+                    </a>
+                </li>
+                <li class="liNav">
+                    <a href=".">
+                        <div class="iconMypage"></div>マイページ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- JSONを扱うためのCDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="./C1-1vue.js"></script>
+    <script>
+        const bookButton = document.getElementById('bookButton');
+        bookButton.addEventListener("click", () => {
+            // windowNone
+            const window = document.getElementById("window");
+            window.classList.add("windowNone")
+            const sendMessage = document.getElementById("sendMessage");
+            sendMessage.classList.remove("windowNone")
+            const sendUrl = () => {
+                location.href = "./H1-1.html"
+            }
+            setTimeout(sendUrl, 2000);
+        })
+    </script>
+</body>
+
+</html>
