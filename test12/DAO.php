@@ -38,7 +38,7 @@ class Dteam
         $ps->execute();
         $search = $ps->fetchAll();
         foreach ($search as $row) {
-            array_push($data, array('id' => $row['user_id'], 'username' => $row['user_name'], 'mail' => $row['user_email'], 'address' => $row['user_address']));
+            array_push($data, array('id' => $row['user_id'], 'username' => $row['user_name'], 'mail' => $row['user_email'], 'address' => $row['user_address'], 'tel' => $row['user_tel']));
         }
         return $data;
     }

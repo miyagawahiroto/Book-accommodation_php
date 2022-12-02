@@ -40,19 +40,19 @@ if (isset($_GET['get_room']) == true) {
     $data = $class->get_room($_GET['room_id']);
 }
 
-//get_hotellistの引数がある場合user情報を返す
+//get_hotellistの引数がある場合ホテル情報を返す
 if (isset($_GET['get_hotellist']) == true) {
     $class = new Dteam();
     $data = $class->get_hotellist();
 }
 
-//get_hotelidlistの引数がある場合user情報を返す
+//get_hotelidlistの引数がある場合ホテル情報を返す
 if (isset($_GET['get_hotelidlist']) == true) {
     $class = new Dteam();
     $data = $class->get_hotelidlist();
 }
 
-//get_hotelnumの引数がある場合user情報を返す
+//get_hotelnumの引数がある場合情報ホテルを返す
 if (isset($_GET['get_farst']) == true) {
     $class = new Dteam();
     $data = $class->get_farst_hotels($_GET['num']);
