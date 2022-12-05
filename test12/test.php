@@ -87,6 +87,12 @@ if(isset($_GET['room_photo'])==true){
     $data=$class->room_photo($_GET['id']);
 }
 
+//引数insert_reserveがある時の処理
+if(isset($_GET['insert_reserve'])==true){
+    $class = new Dteam();
+    $data=$class->insert_reserve($_GET['user_id'],$_GET['hotel_id'],$_GET['room_id'],$_GET['checkin'],$_GET['checkout'],$_GET['number']);
+}
+
 //arrayの中身をJSON形式に変換している
 $json_array = json_encode($data);
 

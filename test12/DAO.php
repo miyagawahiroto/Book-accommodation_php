@@ -279,4 +279,25 @@ class Dteam
         }
         return $data;
     }
+
+
+    function insert_reserve($user_id,$hotel_id,$room_id,$checkin,$checkout,$number)
+    {
+
+        $pdo = $this->get_pdo();
+        $sql = 'INSERT INTO reserve_tbl (user_id,hotel_id,room_id,checkin_date,checkout_date,reservation_number) VALUE (?,?,?,?,?,?)';
+
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, $user_id, PDO::PARAM_STR);
+        $ps->bindValue(2, $hotel_id, PDO::PARAM_STR);
+        $ps->bindValue(3, $room_id, PDO::PARAM_STR);
+        $ps->bindValue(4, $checkin, PDO::PARAM_STR);
+        $ps->bindValue(5, $checkout, PDO::PARAM_STR);
+        $ps->bindValue(6, $number, PDO::PARAM_STR);
+        $ps->execute();
+
+        return true;
+    }
+
+
 }
