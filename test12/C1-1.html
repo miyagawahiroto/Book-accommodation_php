@@ -25,44 +25,38 @@
             </div>
 
 
-            <input type="checkbox" id="pop-up">
-            <div v-for="item in room">
-                <div class="overlay">
-                    <!-- 送信時にクラスの切り替え -->
-                    <div class="window">
-                        <div id="window">
-                            <label class="close" for="pop-up">×</label>
-                            <div class="hotelName">XXXHotel</div>
-                            <br>
-                            <label class="hotelDetails">
-                                <p>fee:10000yen</p>
-                                <hr noshade="" size="2">
-                                <p>name:oooooo</p>
-                                <hr noshade="" size="2">
-                                <p>plan:oooooCurse</p>
-                                <hr noshade="" size="2">
-                                <p>cheackinDate:00/00</p>
-                                <hr noshade="" size="2">
-                                <p>cheackoutDate:00/00</p>
-                                <hr noshade="" size="2">
-                                <p>how many:oo humans</p>
-                                <hr noshade="" size="2">
-                            </label>
+                <!-- 送信時にクラスの切り替え -->
+                    <div id="window" class="window" v-if="window2">
+                        <label class="close" @click="takeroom">×</label>
+                        <div class="hotelName">XXXHotel</div>
+                        <br>
+                        <label class="hotelDetails">
+                            <p>fee:10000yen</p>
+                            <hr noshade="" size="2">
+                            <p>name:oooooo</p>
+                            <hr noshade="" size="2">
+                            <p>plan:oooooCurse</p>
+                            <hr noshade="" size="2">
+                            <p>cheackinDate:00/00</p>
+                            <hr noshade="" size="2">
+                            <p>cheackoutDate:00/00</p>
+                            <hr noshade="" size="2">
+                            <p>how many:oo humans</p>
+                            <hr noshade="" size="2">
+                        </label>
 
-                            <label class="text">Are you ready?</label>
-                            <br>
-                            <!--@clickはbookButtonに書く-->
-                            <div class="bookButton" id="bookButton">
-                                <i href="." class="booklink">book</i>
-                            </div>
-                        </div>
-                        <div id="sendMessage" class="windowNone">
-                            <p class="hotelDetails">完了しました</p>
+                        <label class="text">Are you ready?</label>
+                        <br>
+                        <!--@clickはbookButtonに書く-->
+                        <div class="bookButton" id="bookButton" @click="bookroom">
+                            <i class="booklink">book</i>
                         </div>
                     </div>
-                </div>
+                    <div id="sendMessage" class="window" v-if="window3">
+                        <p class="hotelDetails">完了しました</p>
+                    </div>
 
-
+            <div v-for="item in room">
                 <div class="hotelContent">
                     <div class="serviceTitle">
                         <h5>{{item.title}}</h5>
@@ -86,8 +80,8 @@
 
             <hr>
 
-            <div class="takeButton">
-                <label class="open takeBtn" for="pop-up">
+            <div class="takeButton"@click="takeroom">
+                <label class="open takeBtn">
                     take a room
                 </label>
             </div>
@@ -132,20 +126,7 @@
     <!-- import JavaScript -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="./C1-1vue.js"></script>
-    <script>
-        const bookButton = document.getElementById('bookButton');
-        bookButton.addEventListener("click", () => {
-            // windowNone
-            const window = document.getElementById("window");
-            window.classList.add("windowNone")
-            const sendMessage = document.getElementById("sendMessage");
-            sendMessage.classList.remove("windowNone")
-            const sendUrl = () => {
-                location.href = "./H1-1.html"
-            }
-            setTimeout(sendUrl, 2000);
-        })
-    </script>
+    
 </body>
 
 </html>
