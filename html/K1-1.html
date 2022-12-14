@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./K1-1.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="backImg">
+        <div v-show="modalDefault==true" class="mainContent">
+          <div class="areaInput">
+            <div class="text">
+              <h4>キーワードで探す</h4>
+            </div>
+            <div class="inputSearchHotel">
+              <input type="text" name="name" placeholder="宿名などを入力" v-model="search_hotel_name">
+            </div>
+            <div class="inputSearchArea">
+              <input type="text" name="area" placeholder="都道府県・エリアを入力（必須）" v-model="place_name">
+            </div>
+            <div class="checkDate">
+              <input type="date" name="checkIn">
+              <input type="date" name="checkOut">
+            </div>
+            <div class="inputNumber">
+              <input type="number" name="numberPeople" placeholder="人数" min=0>
+              <input type="number" name="countRoom" placeholder="部屋数" min=0>
+            </div>
+            <div class="termsBtn">
+              <button @click="changeModal" class="Btn">こだわり条件</i>
+            </div>
+          </div>
+          <div class="search-area">
+            <button class="serachBtn" @click="pushbutton">検索する</button>
+          </div>
+        </div>
+
+        <div v-show="modalChanged==true" class="areaInput">
+          <div class="modalClose" @click="changeModal">閉じる</div>
+          <h4>絞り込み検索</h4>
+          <div class="checkboxList" v-for="(item,i) in checkedNames" :key="i">
+            <label class="itemBox">
+              <input type="checkbox" v-model="item.chk">{{item.tagName}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <nav class="nav">
+    <ul class="ulNav">
+      <li class="liNav">
+        <a href="./H1-1.html">
+          <div class="iconHome"></div>ホーム
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./K1-1.html">
+          <div class="iconSearch"></div>検索
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./R1-1.html">
+          <div class="iconBook"></div>予約一覧
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./M1-1.html">
+          <div class="iconMypage"></div>マイページ
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- JSONを扱うためのCDN -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="./K1-1vue.js"></script>
+</body>
+
+</html>

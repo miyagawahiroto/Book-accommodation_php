@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,93 +11,105 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <title>H1-1</title>
 </head>
+
 <body>
-  <main>
-    <div class="topImg">
-      <div id="app">
-        <el-carousel :interval="5000" trigger="click" height="250px">
-          <el-carousel-item>
-            <img src="./photo/view/view_1.jpg" alt="">
-          </el-carousel-item>
-          <el-carousel-item>
-            <img src="./photo/view/view_2.jpg" alt="">
-          </el-carousel-item>
-          <el-carousel-item>
-            <img src="./photo/view/view_3.jpg" alt="">
-          </el-carousel-item>
-          <el-carousel-item>
-            <img src="./photo/view/view_4.jpg" alt="">
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-    </div>
-
-
-    <div class="slideImg" style="margin-top:30px">
-      <div id="img">
-          <el-carousel :interval="4000" type="card" height="200px">
-          <el-carousel-item>
-            <a href="./C1-1.html"><img src="./photo/sea/sea_6.jpg" alt=""></a>
-          </el-carousel-item>
-          <el-carousel-item>
-            <img src="./photo/sea/sea_7.jpg" alt="">
-          </el-carousel-item>
-          <el-carousel-item>
-            <img src="./photo/sea/sea_8.jpg" alt="">
-          </el-carousel-item>
-          <el-carousel-item>
-            <img src="./photo/sea/sea_9.jpg" alt="">
-          </el-carousel-item>
+  <div id="app">
+    <main>
+      <div class="topImg">
+        <div id="app">
+          <el-carousel :interval="5000" trigger="click" height="250px">
+            <el-carousel-item>
+              <img src="./photo/view/view_1.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="./photo/view/view_2.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="./photo/view/view_3.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="./photo/view/view_4.jpg" alt="">
+            </el-carousel-item>
           </el-carousel>
+        </div>
       </div>
-    </div>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-    <p>hogehogehogehogehogehogehogehogehoge</p>
-  </main>
 
 
-  <nav class="nav">
-    <ul class="ulNav">
-      <li class="liNav">
-        <a href="./H1-1.html"><div class="iconHome"></div>ホーム</a>
-      </li>
-      <li class="liNav">
-        <a href="."><div class="iconSearch"></div>検索</a>
-      </li>
-      <li class="liNav">
-        <a href="."><div class="iconBook"></div>予約一覧</a>
-      </li>
-      <li class="liNav">
-        <a href="./M1-1.html"><div class="iconMypage"></div>マイページ</a>
-      </li>
-    </ul>
-  </nav>
+      <div class="slideImg" style="margin-top:30px">
+        <div id="img">
+          <el-carousel :interval="4000" type="card" height="200px">
+            <el-carousel-item>
+              <img src="./photo/sea/sea_6.jpg" alt="" @click="clickimg(1)">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="./photo/sea/sea_7.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="./photo/sea/sea_8.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="./photo/sea/sea_9.jpg" alt="">
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </div>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+      <p>hogehogehogehogehogehogehogehogehoge</p>
+    </main>
+
+
+    <nav class="nav">
+      <ul class="ulNav">
+        <li class="liNav">
+          <a href="./H1-1.html">
+            <div class="iconHome"></div>ホーム
+          </a>
+        </li>
+        <li class="liNav">
+          <a href="./K1-1.html">
+            <div class="iconSearch"></div>検索
+          </a>
+        </li>
+        <li class="liNav">
+          <a href="./R1-1.html">
+            <div class="iconBook"></div>予約一覧
+          </a>
+        </li>
+        <li class="liNav">
+          <a href="./M1-1.html">
+            <div class="iconMypage"></div>マイページ
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <!-- import JavaScript -->
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
-  <script src="H1-1.js"></script>
+  <script src="./H1-1vue.js"></script>
 </body>
+
 </html>

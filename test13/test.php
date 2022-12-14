@@ -93,6 +93,26 @@ if(isset($_GET['insert_reserve'])==true){
     $data=$class->insert_reserve($_GET['user_id'],$_GET['hotel_id'],$_GET['room_id'],$_GET['checkin'],$_GET['checkout'],$_GET['number']);
 }
 
+
+//引数delete_reserveがある時の処理
+if(isset($_GET['delete_reserve'])==true){
+    $class = new Dteam();
+    $data=$class->delete_reserve($_GET['reserve_id']);
+}
+
+
+//引数get_reservelistがある時の処理
+if(isset($_GET['get_reserve'])==true){
+    $class = new Dteam();
+    $data=$class->get_reservelist($_GET['user_id']);
+}
+
+//引数room_listがある時の処理
+if(isset($_GET['room_list'])==true){
+    $class = new Dteam();
+    $data=$class->room_list($_GET['hotel_id']);
+}
+
 //arrayの中身をJSON形式に変換している
 $json_array = json_encode($data);
 

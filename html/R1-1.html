@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<header>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>予約一覧確認画面</title>
+  <link rel="stylesheet" href="./R1-1.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</header>
+
+<body>
+  <div id="app">
+    <div v-for="(item,i) in hotel">
+      <div class="card"
+        @click="popup(item.hotelname,item.reserve_id,item.username,item.cosename,item.checkin_date,item.checkout_date,item.reservation_number,item.checkin_time)"
+        :style="{backgroundImage: 'url(./photo/'+item.img+')'}">
+        <!-- <img v-bind:src="item.img" class="photo"> -->
+        <div class="box" id="makeImg">
+          <div class="yadomei">
+            <p>{{item.hotelname}}</p>
+          </div>
+          <div class="cheackDate">
+            <ul>
+              <li class="list">チェックイン</li>
+              <li class="list">：{{item.checkin_date}}</li>
+            </ul>
+          </div><br>
+          <div class="cheackDate">
+            <ul>
+              <li class="list">チェックアウト</li>
+              <li class="list">：{{item.checkout_date}}</li>
+            </ul>
+          </div><br>
+          <div class="abletime">
+            <P>チェックイン可能時間</P>
+            <p>{{item.checkin_time}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="window" v-if="window">
+      <label class="close" for="pop-up" @click="clickwindow">×</label>
+
+      <li class="text">
+        <p>{{hotelname}}</p>
+      </li><br>
+
+      <li class="text2">予約ID：{{reserve_id}}</li>
+      <hr noshade="" size="3" color="#fff">
+      <li class="text2">氏名：{{username}}</li>
+      <hr noshade="" size="3" color="#fff">
+      <li class="text2">{{cosename}}</li>
+      <hr noshade="" size="3" color="#fff">
+      <li class="text2">チェックイン：{{checkin_date}}</li>
+      <hr noshade="" size="3" color="#fff">
+      <li class="text2">チェックアウト：{{checkout_date}}</li>
+      <hr noshade="" size="3" color="#fff">
+      <li class="text2">人数：{{reservation_number}}人</li>
+      <hr noshade="" size="3" color="#fff">
+      <li class="text2">チェックイン可能時間：{{checkin_time}}</li>
+      <hr noshade="" size="3" color="#fff">
+
+      <div class="btn-class" @click="clickwindow2">
+        <button for="open" class="btn-box">予約取り消し</button>
+      </div>
+    </div>
+
+
+    <div class="window2" v-if="window2">
+      <div class="text3">
+        本当に予約を取り消しても<br>
+        よろしいですか？
+      </div>
+
+      <div class="btn-image">
+        <button for="open" class="btn-yes" @click="clickwindowYes">はい</button>
+        <button for="open" class="btn-no" @click="clickwindowNo">いいえ</button>
+      </div>
+    </div>
+
+
+    <div class="window3" v-if="window3">
+      <div class="text4">
+        予約の取り消しを<br>
+        完了致しました
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 30%;"></div>
+  <!-- <hr width="80%" noshade> -->
+
+  <nav class="nav">
+    <ul class="ulNav">
+      <li class="liNav">
+        <a href="./H1-1.html">
+          <div class="iconHome"></div>ホーム
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./K1-1.html">
+          <div class="iconSearch"></div>検索
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./R1-1.html">
+          <div class="iconBook"></div>予約一覧
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./M1-1.html">
+          <div class="iconMypage"></div>マイページ
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- vue.jsのCDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- JSONを扱うためのCDN -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./R1-1vue.js"></script>
+</body>
+
+</html>

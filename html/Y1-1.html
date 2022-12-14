@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./Y1-1.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div id="app">
+      {{ id }}
+      <header>
+        <h2>{{ name }}</h2>
+      </header>
+      <main>
+        <div class="hotelCard">
+          <img src="../photo/hotel/hotel_11.jpg">
+        </div>
+        <div class="hotelDetails">
+          <h4 class="Infomation">{{ info }}</h4>
+          <div class="bookButton">
+            <a class="bookRoomBtn" href=".">books Room</a>
+          </div>
+
+          <ul class="list">
+            <li v-for="item in rooms" :key="item.name">
+              <div @click="linkRoom(item.room_id)" class="roomCard" :style="{ 
+            backgroundImage: 'linear-gradient(90deg, white,85%, rgba(0,0,0,0)),url(' + item.src + ')'}">
+                <h4>{{ item.roomName }}</h4>
+                <p> チェックイン：{{ item.checkIn }}</p>
+                <p> チェックアウト：{{ item.checkOut }}</p>
+                <p class="roomInfoz"> {{ item.roomInfo }}</p>
+              </div>
+              <hr>
+            </li>
+          </ul>
+        </div>
+
+      </main>
+
+
+      <nav class="nav">
+        <ul class="ulNav">
+          <li class="liNav">
+            <a href="./H1-1.html">
+              <div class="iconHome"></div>ホーム
+            </a>
+          </li>
+          <li class="liNav">
+            <a href="./K1-1.html">
+              <div class="iconSearch"></div>検索
+            </a>
+          </li>
+          <li class="liNav">
+            <a href="./R1-1.html">
+              <div class="iconBook"></div>予約一覧
+            </a>
+          </li>
+          <li class="liNav">
+            <a href="./M1-1.html">
+              <div class="iconMypage"></div>マイページ
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- vue.jsのCDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- JSONを扱うためのCDN -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./Y1-1Vue.js"></script>
+</body>
+
+</html>

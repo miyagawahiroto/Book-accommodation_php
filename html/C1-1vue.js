@@ -3,7 +3,7 @@ const vm = new Vue({
     data: {
         user_id: window.sessionStorage.getItem(['user_id']),
         user:{},
-        room_id: '2',
+        room_id: window.sessionStorage.getItem(['room_id']),
         photo: '../photo/',
         room: {},
         window2: false,
