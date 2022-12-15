@@ -11,30 +11,31 @@
 </head>
 
 <body>
-  <div class="container">
-    <div id="app">
-      {{ id }}
+  <div id="app">
+    <div class="container" v-if="get_data">
+
+      {{ hotel_id }}
       <header>
-        <h2>{{ name }}</h2>
+        <h2>{{ hotel[0].hotel_name }}</h2>
       </header>
       <main>
         <div class="hotelCard">
-          <img src="../photo/hotel/hotel_11.jpg">
+          <img :style="{backgroundImage:'url('+hotelImg+')'}">
         </div>
         <div class="hotelDetails">
           <h4 class="Infomation">{{ info }}</h4>
-          <div class="bookButton">
+          <!-- <div class="bookButton">
             <a class="bookRoomBtn" href=".">books Room</a>
-          </div>
+          </div> -->
 
           <ul class="list">
-            <li v-for="item in rooms" :key="item.name">
+            <li v-for="item in roomlist" :key="item.room_id">
               <div @click="linkRoom(item.room_id)" class="roomCard" :style="{ 
-            backgroundImage: 'linear-gradient(90deg, white,85%, rgba(0,0,0,0)),url(' + item.src + ')'}">
-                <h4>{{ item.roomName }}</h4>
-                <p> チェックイン：{{ item.checkIn }}</p>
-                <p> チェックアウト：{{ item.checkOut }}</p>
-                <p class="roomInfoz"> {{ item.roomInfo }}</p>
+            backgroundImage: 'linear-gradient(90deg, white,85%, rgba(0,0,0,0)),url(../photo/' + item.img + ')'}">
+                <h4>{{ item.title }}</h4>
+                <p> 施設：<br>{{ item.tag_3 }}</p>
+                <p> アメニティ：<br>{{ item.tag_4 }}</p>
+                <p class="roomInfoz"> {{ item.fee }}円</p>
               </div>
               <hr>
             </li>
@@ -74,7 +75,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <!-- JSONを扱うためのCDN -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="./Y1-1Vue.js"></script>
+  <script src="./Y1-1vue.js"></script>
 </body>
 
 </html>

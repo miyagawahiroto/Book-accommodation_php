@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  height: 36px;
+  width: 100%;
+  background-color: rgba(34, 58, 112, 1);
+  margin-top:8%;
+}
+
+/* conditions */
+.conditionds {
+  width: 90%;
+  margin: 0 auto;
+  padding: 3% 5%;
+}
+
+.conditionds i{
+  float:left;
+  margin-right: 2%;
+}
+
+.conditionds label {
+  height: 2.5em;
+  background-color: rgb(247,236,236);
+  display: inline-flex;
+  margin-left: 2%;
+  width:90%;
+  margin-bottom: 2%;
+}
+
+/* icon */
+
+.iconLocation::before {
+  font-family: 'FontAwesome';
+  content: "\f279";
+  font-size: 2em;
+}
+
+.iconDate::before {
+  font-family: 'FontAwesome';
+  content: "\f133";
+  font-size: 2em;
+}
+
+.iconRoomCnt::before {
+  font-family: 'FontAwesome';
+  content: "\f0c0";
+  font-size: 2em;
+}
+
+.iconCondition::before {
+  font-family: 'FontAwesome';
+  content: "\f005";
+  font-size: 2em;
+}
+
+
+/*  selectBox */
+.selectBox {
+  margin-bottom: 10%;
+}
+.selectBox select {
+  position:absolute;
+  right: 0px;
+  background-color: rgba(34, 58, 112, 1);
+  color: #fff;
+}
+
+/* List */
+
+.list {
+  width: 95%;
+  margin: 0 auto;
+  list-style: none;
+}
+.hotelCard {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.list li {
+  padding: 1% 3%;
+}
+
+.list h4 {
+  text-align: center;
+}
+
+.list p {
+  margin-left: 4%;
+  text-align: right;
+  font-size: 8px;
+  padding-right: 45%;
+}
+.list p:nth-child(4) {
+  padding-right: 3%;
+}
+
+/* .hotelList {
+  width: 100%;
+  height: 20%;
+}
+.hotelList ul {
+  margin-bottom:5%;
+  list-style: none;
+  text-align: center;
+}
+.hotelList ul p:nth-child(4) {
+  text-align: right ;
+}
+.hotelList li {
+  margin-bottom: 5%;
+  background-color: rgb(247, 236, 236);
+  padding: 2% 3%;
+}
+.hotelList img {
+  width: auto;
+  height: 100px;
+}
+.hotelList p {
+  margin-bottom: 1%;
+} */
+
+
+/*共通部分navigationの部分*/
+
+.nav {
+  background-color: rgba(34, 58, 112, 1);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.ulNav {
+  display: flex;
+  text-align: center;
+  list-style: none;
+}
+
+.liNav {
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding: 5% 0;
+}
+
+.liNav>a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*アイコンの設定*/
+
+.iconHome::before {
+  font-family: 'FontAwesome';
+  content: "\f015";
+  font-size: 2em;
+}
+
+.iconSearch:before {
+  font-family: 'FontAwesome';
+  content: "\f002";
+  font-size: 2em;
+}
+
+.iconBook::before {
+  font-family: 'FontAwesome';
+  content: "\f0f2";
+  font-size: 2em;
+}
+
+.iconMypage::before {
+  font-family: 'FontAwesome';
+  content: "\f007";
+  font-size: 2em;
+}

@@ -186,8 +186,9 @@ class Dteam
         $ps->execute();
         $search = $ps->fetchAll();
         foreach ($search as $row) {
+            $hotel_name = $this->get_hotelname($row['hotel_id']);
             array_push($data, array(
-                'room_id' => $row['room_id'], 'hotel_id' => $row['hotel_id'], 'title' => $row['service_title'], 'available' => $row['available'], 'fee' => $row['fee'],
+                'room_id' => $row['room_id'], 'hotel_id' => $row['hotel_id'], 'title' => $row['service_title'], 'available' => $row['available'], 'fee' => $row['fee'],'hotel_name' => $hotel_name,
                 'tag_1' => $row['room_tag_1'], 'tag_2' => $row['room_tag_2'], 'tag_3' => $row['room_tag_3'], 'tag_4' => $row['room_tag_4'], 'tag_5' => $row['room_tag_5'], 'tag_6' => $row['room_tag_6'], 'tag_7' => $row['room_tag_7'], 'tag_8' => $row['room_tag_8'], 'tag_9' => $row['room_tag_9'], 'tag_10' => $row['room_tag_10']
             ));
         }
@@ -324,7 +325,7 @@ class Dteam
     function room_photo($id)
     {
         $pdo = $this->get_pdo();
-        $sql = "SELECT * FROM room_photo_tbl WHERE room_id = ? LIMIT 1";
+        $sql = "SELECT * FROM room_photo_tbl WHERE room_id = ?";
         $ps = $pdo->prepare($sql);
         $ps->bindValue(1, $id, PDO::PARAM_STR);
         $ps->execute();
@@ -390,8 +391,9 @@ class Dteam
         $data = array();
 
         foreach ($search as $row) {
+            $roomphoto= $this->room_photo($row['room_id']);
             array_push($data, array(
-                'room_id' => $row['room_id'], 'hotel_id' => $row['hotel_id'], 'title' => $row['service_title'], 'available' => $row['available'], 'fee' => $row['fee'],
+                'room_id' => $row['room_id'], 'hotel_id' => $row['hotel_id'], 'title' => $row['service_title'], 'available' => $row['available'], 'fee' => $row['fee'], 'img' => $roomphoto,
                 'tag_1' => $row['room_tag_1'], 'tag_2' => $row['room_tag_2'], 'tag_3' => $row['room_tag_3'], 'tag_4' => $row['room_tag_4'], 'tag_5' => $row['room_tag_5'], 'tag_6' => $row['room_tag_6'], 'tag_7' => $row['room_tag_7'], 'tag_8' => $row['room_tag_8'], 'tag_9' => $row['room_tag_9'], 'tag_10' => $row['room_tag_10']
             ));
         }
@@ -406,26 +408,39 @@ class Dteam
         $ps = $pdo->prepare($sql);
         $ps->bindValue(1, $reserve_id, PDO::PARAM_STR);
         $ps->execute();
-        return true;
     }
 
 
-    function search_hotel($address)
+    function search_hotel($hotel_name, $hotel_address, $asa, $hiru, $yuu, $nasi, $asahiru, $sansyoku)
     {
         //配列の宣言（無いとエラーが発生した）
         $data = array();
 
         $pdo = $this->get_pdo();
-        $sql = "SELECT * FROM hotel_tbl WHERE hotel_address LIKE ?";
-        $ps = $pdo->prepare($sql);
-        $ps->bindValue(1, '%' . $address . '%', PDO::PARAM_STR);
+
+        if ($hotel_name == null) {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_address LIKE ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, '%' . $hotel_address . '%', PDO::PARAM_STR);
+        } else {
+            $sql = "SELECT * FROM hotel_tbl WHERE hotel_address LIKE ? OR hotel_name LIKE ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, '%' . $hotel_address . '%', PDO::PARAM_STR);
+            $ps->bindValue(2, '%' . $hotel_name . '%', PDO::PARAM_STR);
+        }
+
+
         $ps->execute();
         $search = $ps->fetchAll();
         foreach ($search as $row) {
+            
+            $photo = $this->hotel_photo($row['hotel_id']);
+
             array_push($data, array(
-                'id' => $row['hotel_id'], 'hotel_name' => $row['hotel_name'], 'address' => $row['hotel_address'], 'checkin' => $row['checkin_time'], 'capacity' => $row['hotel_capacity'],
+                'id' => $row['hotel_id'], 'hotel_name' => $row['hotel_name'], 'address' => $row['hotel_address'], 'checkin' => $row['checkin_time'], 'capacity' => $row['hotel_capacity'],'img' => $photo,
                 'tag_1' => $row['hotel_tag_1'], 'tag_2' => $row['hotel_tag_2'], 'tag_3' => $row['hotel_tag_3'], 'tag_4' => $row['hotel_tag_4'], 'tag_5' => $row['hotel_tag_5'], 'tag_6' => $row['hotel_tag_6'], 'tag_7' => $row['hotel_tag_7'], 'tag_8' => $row['hotel_tag_8'], 'tag_9' => $row['hotel_tag_9'], 'tag_10' => $row['hotel_tag_10'], 'num' => 0
             ));
         }
+        return $data;
     }
 }

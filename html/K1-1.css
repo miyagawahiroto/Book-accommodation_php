@@ -32,6 +32,10 @@ input{
 .inputSearchHotel input, .inputSearchArea input {
   width:90%;
 }
+.checkp span{
+  width: 44%;
+  margin: 1rem;
+}
 .checkDate input {
   width: 44%;
   margin-bottom: 5%;

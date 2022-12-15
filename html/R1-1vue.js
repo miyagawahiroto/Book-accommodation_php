@@ -45,7 +45,7 @@ new Vue({
         clickwindowYes() {
             this.window2 = false;
             this.window3 = !this.window3;
-            setTimeout(this.reset, 2000);
+            this.delete_reserve();
         },
         clickwindowNo() {
             this.window2 = false;
@@ -58,6 +58,12 @@ new Vue({
             axios
                 .get("https://mp-class.chips.jp/test.php/?get_reserve&user_id=" + window.sessionStorage.getItem(['user_id']),)
                 .then((response) => (this.hotel = response.data))
+                .catch((error) => console.log(error));
+        },
+        delete_reserve(){
+            axios
+                .get("https://mp-class.chips.jp/test.php/?delete_reserve&reserve_id=" + this.reserve_id)
+                .then((response) => (console.log(response.data)))
                 .catch((error) => console.log(error));
         }
     }

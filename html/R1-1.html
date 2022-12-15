@@ -15,7 +15,6 @@
       <div class="card"
         @click="popup(item.hotelname,item.reserve_id,item.username,item.cosename,item.checkin_date,item.checkout_date,item.reservation_number,item.checkin_time)"
         :style="{backgroundImage: 'url(./photo/'+item.img+')'}">
-        <!-- <img v-bind:src="item.img" class="photo"> -->
         <div class="box" id="makeImg">
           <div class="yadomei">
             <p>{{item.hotelname}}</p>
@@ -90,7 +89,6 @@
   </div>
 
   <div style="margin-top: 30%;"></div>
-  <!-- <hr width="80%" noshade> -->
 
   <nav class="nav">
     <ul class="ulNav">

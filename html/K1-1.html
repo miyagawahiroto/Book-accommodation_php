@@ -25,9 +25,17 @@
             <div class="inputSearchArea">
               <input type="text" name="area" placeholder="都道府県・エリアを入力（必須）" v-model="place_name">
             </div>
+            <div class="checkp">
+              <span>チェックイン</span>
+              <span>チェックアウト</span>
+            </div>
             <div class="checkDate">
-              <input type="date" name="checkIn">
-              <input type="date" name="checkOut">
+              <span>
+                <input type="date" name="checkIn">
+              </span>
+              <span>
+                <input type="date" name="checkOut">
+              </span>
             </div>
             <div class="inputNumber">
               <input type="number" name="numberPeople" placeholder="人数" min=0>

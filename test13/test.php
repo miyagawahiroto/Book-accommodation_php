@@ -113,6 +113,14 @@ if(isset($_GET['room_list'])==true){
     $data=$class->room_list($_GET['hotel_id']);
 }
 
+
+//引数search_hotelがある時の処理
+if(isset($_POST['search_hotel'])==true){
+    $class = new Dteam();
+    $data=$class->search_hotel($_POST['hotel_name'],$_POST['place_name'],$_POST['asa'],$_POST['hiru'],$_POST['yuu'],$_POST['nasi'],$_POST['asahiru'],$_POST['sansyoku']);
+}
+
+
 //arrayの中身をJSON形式に変換している
 $json_array = json_encode($data);
 

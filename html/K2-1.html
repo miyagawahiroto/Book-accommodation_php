@@ -1,12 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>sample</title>
+  <link rel="stylesheet" href="./K2-1.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    
+  <div id="app">
+
+    <!-- header -->
+    <header></header>
+
+
+    <!-- conditionds -->
+    <div class="conditionds">
+
+      <div class="location">
+        <i class=" fa-fw iconLocation"></i><label>{{ place_name }}</label>
+      </div>
+      <div class="date">
+        <i class=" fa-fw iconDate"></i><label>{{ date }}</label>
+      </div>
+      <div class="RoomCnt">
+        <i class="fa-fw iconRoomCnt "></i><label>{{ roomCnt }}部屋{{ peopleNum }}人</label>
+      </div>
+
+      <div class="condition">
+        <i class="fa-fw iconCondition"></i><label>検索キーワード：{{ search_hotel_name }}</label>
+      </div>
+
+    </div>
+
+
+    <!-- selectBox -->
+    <div class="selectBox">
+      <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          <h6>並び順：{{ option.text }}</h6>
+        </option>
+      </select>
+    </div>
+
+    <!-- hotelList -->
+    <ul class="list">
+      <li v-for="item in hotels" :key="hotel.id">
+        <div @click="linkRoom(item.id)" class="hotelCard"
+          :style="{ 
+            backgroundImage: 'linear-gradient(270deg, rgb(247, 236, 236) 60%, rgba(0,0,0,0) 60%),url(../photo/' + item.img + ')'}">
+          <p>{{ item.hotel_name }}</p>
+          <p><span>bedroom:</span>{{ item.tag_4 }}</p>
+          <p><span class="fa-fw iconLocation"></span>{{ item.address }}</p>
+          <p>{{ hotel.charge }}</p>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <div style="margin-top: 30%;"></div>
+
+  <nav class="nav">
+    <ul class="ulNav">
+      <li class="liNav">
+        <a href="./H1-1.html">
+          <div class="iconHome"></div>ホーム
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./K1-1.html">
+          <div class="iconSearch"></div>検索
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./R1-1.html">
+          <div class="iconBook"></div>予約一覧
+        </a>
+      </li>
+      <li class="liNav">
+        <a href="./M1-1.html">
+          <div class="iconMypage"></div>マイページ
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- JSONを扱うためのCDN -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./K2-1vue.js"></script>
 </body>
+
 </html>

@@ -2,65 +2,54 @@ const vm = new Vue({
     el: '#app',
     data() {
         return {
-            id: 00,
-            name: 'hotelName',
+            get_data: false,
             info: 'infomation',
             hotel_id:window.sessionStorage.getItem(['hotel_id']),
-            roomlist:[],
-            rooms: [
-                {
-                    room_id: 0,
-                    roomName: 'room',
-                    checkIn: 'MM月DD日()',
-                    checkOut: 'MM月DD日()',
-                    roomInfo: 'チェックイン可能時間　～時まで',
-                    src: "../photo/hotel/hotel_7.jpg"
-                }, {
-
-                    room_id: 1,
-                    roomName: '三人部屋',
-                    checkIn: 'SS月DD日()',
-                    checkOut: 'MM月DD日()',
-                    roomInfo: 'チェックイン可能時間　～時まで',
-                    src: "../photo/hotel/hotel_8.jpg"
-                }, {
-                    room_id: 2,
-                    roomName: '二人部屋',
-                    checkIn: 'MM月DD日()',
-                    checkOut: 'MM月DD日()',
-                    roomInfo: 'チェックイン可能時間　～時まで',
-                    src: "../photo/hotel/hotel_7.jpg"
-                }, {
-                    room_id: 3,
-                    roomName: '三人部屋',
-                    checkIn: 'MM月DD日()',
-                    checkOut: 'MM月DD日()',
-                    roomInfo: 'チェックイン可能時間　～時まで',
-                    src: "../photo/hotel/hotel_7.jpg"
-                }, {
-                    room_id: 4,
-                    roomName: '三人部屋',
-                    checkIn: 'MM月DD日()',
-                    checkOut: 'MM月DD日()',
-                    roomInfo: 'チェックイン可能時間　～時まで',
-                    src: "../photo/hotel/hotel_7.jpg"
-                }
-            ]
+            roomlist: [],
+            hotel: [],
+            hotelImg: '../photo/'
         };
     },
-    mounted(){
+    created() {
+
+    },
+    mounted() {
         this.get_roomlist();
+        this.get_hotel();
+        this.get_hotel_photo();
     },
     methods: {
         linkRoom(room_id) {
             window.sessionStorage.setItem(['room_id'], room_id);
             location.href = './C1-1.html';
         },
-        get_roomlist(){
+        get_roomlist() {
             axios
                 .get("https://mp-class.chips.jp/test.php/?room_list&hotel_id=" + this.hotel_id)
                 .then((response) => (this.roomlist = response.data))
                 .catch((error) => console.log(error));
+        },
+        get_hotel() {
+            axios
+                .get("https://mp-class.chips.jp/test.php/?get_hotel&hotel_id=" + this.hotel_id)
+                .then((response) => (this.hotel = response.data))
+                .catch((error) => console.log(error));
+        },
+        get_hotel_photo() {
+
+            axios
+
+                .get("https://mp-class.chips.jp/test.php/?hotel_photo&id=" + this.hotel_id)
+
+                .then((response) => (this.hotelImg += response.data))
+
+                .catch((error) => console.log(error));
+
+        }
+    },
+    watch: {
+        hotel: function (newdata, olddata) {
+            this.get_data = true;
         }
     }
 });

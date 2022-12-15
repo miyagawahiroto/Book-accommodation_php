@@ -28,12 +28,12 @@
                 <!-- 送信時にクラスの切り替え -->
                     <div id="window" class="window" v-if="window2">
                         <label class="close" @click="takeroom">×</label>
-                        <div class="hotelName">XXXHotel</div>
+                        <div class="hotelName">{{item.hotel_name}}</div>
                         <br>
                         <label class="hotelDetails">
                             <p>￥{{item.fee}}</p>
                             <hr noshade="" size="2">
-                            <!-- <p>{{user[0].username}}　様</p> -->
+                            <p>{{user[0].username}}　様</p>
                             <hr noshade="" size="2">
                             <p>{{item.title}}</p>
                             <hr noshade="" size="2">
